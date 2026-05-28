@@ -1,10 +1,17 @@
 import { toast } from "sonner";
+import {
+  SHOPIFY_STOREFRONT_TOKEN,
+  SHOPIFY_STOREFRONT_URL,
+  isShopifyConfigured,
+} from "@/lib/shopifyConfig";
 
-const SHOPIFY_API_VERSION = '2025-07';
-const SHOPIFY_STORE_PERMANENT_DOMAIN =
-  import.meta.env.VITE_SHOPIFY_STORE_DOMAIN ?? 'store-spark-7absc.myshopify.com';
-const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
-const SHOPIFY_STOREFRONT_TOKEN = import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN ?? '';
+export {
+  SHOPIFY_STORE_DOMAIN,
+  SHOPIFY_STOREFRONT_URL,
+  PUBLIC_STORE_URL,
+  SHOPIFY_ACCOUNT_ORDERS_URL,
+  isShopifyConfigured,
+} from "@/lib/shopifyConfig";
 
 export interface ShopifyProduct {
   node: {
@@ -51,6 +58,13 @@ export interface ShopifyProduct {
 }
 
 export async function storefrontApiRequest(query: string, variables: Record<string, unknown> = {}) {
+  if (!isShopifyConfigured()) {
+    toast.error("Shopify not connected", {
+      description: "Add VITE_SHOPIFY_STORE_DOMAIN and VITE_SHOPIFY_STOREFRONT_TOKEN to your environment.",
+    });
+    throw new Error("Shopify Storefront API is not configured");
+  }
+
   const response = await fetch(SHOPIFY_STOREFRONT_URL, {
     method: 'POST',
     headers: {

@@ -5,8 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Package, Search } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const SHOPIFY_STORE_DOMAIN = "store-spark-7absc.myshopify.com";
+import { SHOPIFY_ACCOUNT_ORDERS_URL } from "@/lib/shopifyConfig";
 
 const TrackOrder = () => {
   const [orderNumber, setOrderNumber] = useState("");
@@ -15,8 +14,7 @@ const TrackOrder = () => {
   const handleTrackOrder = (e: React.FormEvent) => {
     e.preventDefault();
     if (!orderNumber || !email) return;
-    const statusUrl = `https://${SHOPIFY_STORE_DOMAIN}/account/orders`;
-    window.open(statusUrl, "_blank");
+    window.open(SHOPIFY_ACCOUNT_ORDERS_URL, "_blank");
   };
 
   return (

@@ -6,6 +6,7 @@ interface ImportMetaEnv {
   readonly VITE_SUPABASE_PROJECT_ID: string;
   readonly VITE_SHOPIFY_STORE_DOMAIN: string;
   readonly VITE_SHOPIFY_STOREFRONT_TOKEN: string;
+  readonly VITE_STORE_URL: string;
 }
 
 interface ImportMeta {

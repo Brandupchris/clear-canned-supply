@@ -1,4 +1,13 @@
-# Welcome to your Lovable project
+# Clear Canned Supply
+
+Headless Shopify storefront built with Lovable, Vite, React, and Supabase.
+
+## Links
+
+- **Live site**: https://clear-canned-supply.vercel.app
+- **GitHub**: https://github.com/Brandupchris/clear-canned-supply
+- **Vercel**: https://vercel.com/mobile-route-s-projects/clear-canned-supply
+- **Shopify store**: https://store-spark-7absc.myshopify.com
 
 ## Project info
 
@@ -29,12 +38,27 @@ git clone <YOUR_GIT_URL>
 # Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
+# Step 3: Copy environment variables and fill in your values.
+cp .env.example .env
+
+# Step 4: Install the necessary dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 5: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
+
+The dev server runs at http://localhost:8080
+
+### Environment variables
+
+| Variable | Description |
+|----------|-------------|
+| `VITE_SHOPIFY_STORE_DOMAIN` | Your `.myshopify.com` store domain |
+| `VITE_SHOPIFY_STOREFRONT_TOKEN` | Storefront API access token from Shopify Admin |
+| `VITE_SUPABASE_URL` | Supabase project URL (from Lovable) |
+| `VITE_SUPABASE_PUBLISHABLE_KEY` | Supabase anon key |
+| `VITE_SUPABASE_PROJECT_ID` | Supabase project ID |
 
 **Edit a file directly in GitHub**
 

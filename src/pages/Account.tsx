@@ -189,7 +189,7 @@ const Account = () => {
                     <User className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
-                    <h1 className="text-xl font-semibold text-foreground">
+                    <h1 className="text-xl font-bold text-foreground">
                       {customer.firstName} {customer.lastName}
                     </h1>
                     <p className="text-sm text-muted-foreground">{customer.email}</p>
@@ -198,11 +198,11 @@ const Account = () => {
                 <div className="space-y-3 pt-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Orders</span>
-                    <span className="text-foreground font-medium">{customer.numberOfOrders}</span>
+                    <span className="text-foreground font-bold">{customer.numberOfOrders}</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Member since</span>
-                    <span className="text-foreground font-medium">
+                    <span className="text-foreground font-bold">
                       {new Date(customer.createdAt).toLocaleDateString()}
                     </span>
                   </div>
@@ -214,7 +214,7 @@ const Account = () => {
 
               {/* Order History */}
               <div className="border border-border rounded-lg p-8 bg-card">
-                <h2 className="text-lg font-medium tracking-tight mb-6 flex items-center gap-2">
+                <h2 className="text-lg font-bold tracking-tight mb-6 flex items-center gap-2">
                   <Package className="w-5 h-5" /> Order History
                 </h2>
                 {customer.orders.length === 0 ? (
@@ -224,8 +224,8 @@ const Account = () => {
                     {customer.orders.map((order) => (
                       <div key={order.id} className="border border-border rounded-md p-4">
                         <div className="flex items-center justify-between mb-2">
-                          <span className="text-sm font-medium">{order.name}</span>
-                          <span className="text-sm tabular-nums font-medium">
+                          <span className="text-sm font-bold">{order.name}</span>
+                          <span className="text-sm tabular-nums font-bold">
                             ${parseFloat(order.totalPrice.amount).toFixed(2)} {order.totalPrice.currencyCode}
                           </span>
                         </div>
@@ -251,7 +251,7 @@ const Account = () => {
           ) : (
             <div className="max-w-md mx-auto border border-border rounded-lg p-8 bg-card">
               <div className="text-center mb-8">
-                <h1 className="text-2xl font-bold text-foreground">
+                <h1 className="type-display-sm text-2xl text-foreground">
                   {mode === "login" ? "Welcome Back" : "Create Account"}
                 </h1>
                 <p className="text-sm text-muted-foreground mt-1">

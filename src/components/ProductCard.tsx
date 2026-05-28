@@ -33,7 +33,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             </div>
           )}
         </div>
-        <h3 className="text-sm font-medium tracking-tight truncate">{title}</h3>
+        <h3 className="text-sm font-bold tracking-tight truncate">{title}</h3>
         <p className="text-sm text-muted-foreground tabular-nums mt-0.5">
           ${parseFloat(price.amount).toFixed(2)} {price.currencyCode}
         </p>

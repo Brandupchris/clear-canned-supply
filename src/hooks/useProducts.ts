@@ -17,7 +17,7 @@ export function useProductByHandle(handle: string) {
     queryKey: ['product', handle],
     queryFn: async () => {
       const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
-      const product = data?.data?.productByHandle;
+      const product = data?.data?.product;
       if (!product) return null;
       return { node: product } as ShopifyProduct;
     },

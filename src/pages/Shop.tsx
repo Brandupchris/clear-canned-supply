@@ -56,12 +56,12 @@ const Shop = () => {
           </div>
         ) : error ? (
           <div className="text-center py-32">
-            <p className="text-lg font-medium">Failed to load products</p>
+            <p className="text-lg font-bold">Failed to load products</p>
             <p className="text-sm text-muted-foreground mt-2">Please try again later.</p>
           </div>
         ) : !product ? (
           <div className="text-center py-32">
-            <p className="text-lg font-medium">No products available yet</p>
+            <p className="text-lg font-bold">No products available yet</p>
             <p className="text-sm text-muted-foreground mt-2">Check back soon.</p>
           </div>
         ) : (
@@ -74,7 +74,7 @@ const Shop = () => {
             <p className="text-sm text-muted-foreground mb-8">
               <a href="/" className="hover:text-foreground transition-colors">Home</a>
               <span className="mx-2">/</span>
-              <span className="text-foreground">Order</span>
+              <span className="text-foreground">Order Now</span>
             </p>
 
             <div className="grid md:grid-cols-2 gap-10 md:gap-16">
@@ -115,27 +115,26 @@ const Shop = () => {
 
               {/* Product Info & Order */}
               <div className="flex flex-col">
-                <h1 className="text-2xl sm:text-3xl font-medium tracking-tight">
+                <h1 className="type-section-title">
                   {product.node.title}
                 </h1>
 
                 {price && (
-                  <p className="text-2xl font-medium tabular-nums mt-4">
+                  <p className="type-price mt-4">
                     ${parseFloat(price.amount).toFixed(2)}
-                    <span className="text-sm font-normal text-muted-foreground ml-2">
-                      per box
-                    </span>
+                    <span className="type-body-sm ml-2 font-normal">per box</span>
                   </p>
                 )}
 
                 {/* Variant Options */}
                 {options.map((option) => {
-                  if (option.name === "Title" && option.values.length === 1 && option.values[0] === "Default Title") return null;
+                  const optionValueNames = option.optionValues.map((v) => v.name);
+                  if (option.name === "Title" && optionValueNames.length === 1 && optionValueNames[0] === "Default Title") return null;
                   return (
                     <div key={option.name} className="mt-6">
-                      <label className="text-sm font-medium mb-2 block">{option.name}</label>
+                      <label className="type-label mb-2 block">{option.name}</label>
                       <div className="flex flex-wrap gap-2">
-                        {option.values.map((value) => {
+                        {optionValueNames.map((value) => {
                           const isSelected = selectedVariant?.selectedOptions?.some(
                             (o) => o.name === option.name && o.value === value
                           );
@@ -165,14 +164,14 @@ const Shop = () => {
 
                 {/* Description from Shopify */}
                 {product.node.description && (
-                  <p className="text-sm text-muted-foreground mt-6 leading-relaxed">
+                  <p className="type-body-sm mt-6">
                     Premium 16oz clear plastic cans designed to deliver a clean, modern presentation for cold beverages. With a sleek transparent finish and matching lids included, each box comes with 100 cans built to elevate packaging for iced coffee, cold brew, smoothies, juices, and specialty drinks.
                   </p>
                 )}
 
                 {/* Quantity */}
                 <div className="mt-8">
-                  <label className="text-sm font-medium mb-2 block">Quantity (boxes)</label>
+                  <label className="type-label mb-2 block">Quantity (boxes)</label>
                   <div className="inline-flex items-center border border-border rounded-sm">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -180,7 +179,7 @@ const Shop = () => {
                     >
                       <Minus className="w-4 h-4" />
                     </button>
-                    <span className="w-12 text-center text-sm font-medium tabular-nums">
+                    <span className="w-12 text-center text-sm font-bold tabular-nums">
                       {quantity}
                     </span>
                     <button
@@ -201,7 +200,7 @@ const Shop = () => {
                 <Button
                   onClick={handleAddToCart}
                   disabled={cartLoading || !selectedVariant?.availableForSale || addedToCart}
-                  className="w-full h-12 rounded-sm mt-8 text-sm tracking-wide"
+                  className="type-cta w-full h-12 rounded-sm mt-8"
                 >
                   <AnimatePresence mode="wait">
                     {cartLoading ? (

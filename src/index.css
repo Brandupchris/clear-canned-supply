@@ -40,10 +40,61 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-foreground;
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  .type-eyebrow {
+    @apply font-sans text-xs font-semibold uppercase tracking-eyebrow text-muted-foreground;
+  }
+
+  .type-display {
+    @apply font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] text-foreground;
+  }
+
+  .type-display-sm {
+    @apply font-sans text-3xl sm:text-4xl font-bold tracking-tight leading-tight text-foreground;
+  }
+
+  .type-display-serif {
+    @apply font-serif text-3xl sm:text-4xl md:text-[2.5rem] font-bold tracking-tight leading-tight text-foreground;
+  }
+
+  .type-section-title {
+    @apply font-sans text-2xl sm:text-3xl font-bold tracking-tight text-foreground;
+  }
+
+  .type-subsection-title {
+    @apply font-sans text-xl sm:text-2xl font-bold tracking-tight text-foreground;
+  }
+
+  .type-body {
+    @apply font-sans text-base font-normal leading-relaxed text-muted-foreground;
+  }
+
+  .type-body-sm {
+    @apply font-sans text-sm font-normal leading-relaxed text-muted-foreground;
+  }
+
+  .type-label {
+    @apply font-sans text-sm font-bold text-foreground;
+  }
+
+  .type-cta {
+    @apply font-sans text-sm font-bold tracking-wide;
+  }
+
+  .type-faq-question {
+    @apply font-sans text-base font-bold text-foreground;
+  }
+
+  .type-price {
+    @apply font-sans text-2xl font-bold tabular-nums text-foreground;
   }
 }

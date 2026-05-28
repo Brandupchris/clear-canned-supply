@@ -31,7 +31,7 @@ export const ProductGrid = () => {
   if (!products || products.length === 0) {
     return (
       <div className="text-center py-24">
-        <p className="text-lg font-medium tracking-tight mb-2">No products found</p>
+        <p className="text-lg font-bold tracking-tight mb-2">No products found</p>
         <p className="text-sm text-muted-foreground max-w-md mx-auto">
           This store doesn't have any products yet. Add products through the chat to get started.
         </p>

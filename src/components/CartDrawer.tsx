@@ -34,7 +34,7 @@ export const CartDrawer = () => {
       </SheetTrigger>
       <SheetContent className="w-full sm:max-w-md flex flex-col h-full">
         <SheetHeader className="flex-shrink-0">
-          <SheetTitle className="text-lg font-medium tracking-tight">Cart</SheetTitle>
+          <SheetTitle className="text-lg font-bold tracking-tight">Cart</SheetTitle>
           <SheetDescription>
             {totalItems === 0 ? "Your cart is empty" : `${totalItems} item${totalItems !== 1 ? 's' : ''}`}
           </SheetDescription>
@@ -59,11 +59,11 @@ export const CartDrawer = () => {
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="text-sm font-medium tracking-tight truncate">{item.product.node.title}</h4>
+                        <h4 className="text-sm font-bold tracking-tight truncate">{item.product.node.title}</h4>
                         {item.selectedOptions.length > 0 && item.selectedOptions[0].value !== 'Default Title' && (
                           <p className="text-xs text-muted-foreground mt-0.5">{item.selectedOptions.map(o => o.value).join(' / ')}</p>
                         )}
-                        <p className="text-sm font-medium tabular-nums mt-1">${parseFloat(item.price.amount).toFixed(2)}</p>
+                        <p className="text-sm font-bold tabular-nums mt-1">${parseFloat(item.price.amount).toFixed(2)}</p>
                         <div className="flex items-center gap-2 mt-2">
                           <button onClick={() => updateQuantity(item.variantId, item.quantity - 1)} className="h-7 w-7 flex items-center justify-center border border-border rounded-sm hover:bg-secondary transition-colors">
                             <Minus className="h-3 w-3" />
@@ -83,8 +83,8 @@ export const CartDrawer = () => {
               </div>
               <div className="flex-shrink-0 space-y-4 pt-4 border-t border-border">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium">Total</span>
-                  <span className="text-lg font-medium tabular-nums">${totalPrice.toFixed(2)}</span>
+                  <span className="text-sm font-bold">Total</span>
+                  <span className="text-lg font-bold tabular-nums">${totalPrice.toFixed(2)}</span>
                 </div>
                 <Button onClick={handleCheckout} className="w-full h-12 rounded-sm text-sm tracking-wide" disabled={items.length === 0 || isLoading || isSyncing}>
                   {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : <><ExternalLink className="w-4 h-4 mr-2" />Checkout</>}

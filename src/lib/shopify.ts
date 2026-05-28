@@ -52,7 +52,7 @@ export interface ShopifyProduct {
     };
     options: Array<{
       name: string;
-      values: string[];
+      optionValues: Array<{ name: string }>;
     }>;
   };
 }
@@ -134,7 +134,9 @@ export const PRODUCTS_QUERY = `
           }
           options {
             name
-            values
+            optionValues {
+              name
+            }
           }
         }
       }
@@ -144,7 +146,7 @@ export const PRODUCTS_QUERY = `
 
 export const PRODUCT_BY_HANDLE_QUERY = `
   query GetProductByHandle($handle: String!) {
-    productByHandle(handle: $handle) {
+    product(handle: $handle) {
       id
       title
       description
@@ -182,7 +184,9 @@ export const PRODUCT_BY_HANDLE_QUERY = `
       }
       options {
         name
-        values
+        optionValues {
+          name
+        }
       }
     }
   }

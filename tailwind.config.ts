@@ -13,9 +13,13 @@ export default {
       },
     },
     fontFamily: {
-      sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+      sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+      serif: ['"Libre Baskerville"', 'Georgia', 'Cambria', '"Times New Roman"', 'serif'],
     },
     extend: {
+      letterSpacing: {
+        eyebrow: '0.2em',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -18,6 +18,9 @@ const Returns = lazy(() => import("./pages/Returns"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const DamagedMissing = lazy(() => import("./pages/DamagedMissing"));
+const About = lazy(() => import("./pages/About"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const Wholesale = lazy(() => import("./pages/Wholesale"));
 
 const queryClient = new QueryClient();
 
@@ -30,6 +33,10 @@ const AppContent = () => {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/order-now" element={<Shop />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/wholesale" element={<Wholesale />} />
           <Route path="/product/:handle" element={<ProductDetail />} />
           <Route path="/track" element={<TrackOrder />} />
           <Route path="/account" element={<Account />} />

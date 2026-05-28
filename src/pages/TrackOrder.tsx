@@ -27,10 +27,10 @@ const TrackOrder = () => {
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
               <Package className="w-8 h-8 text-foreground" />
             </div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            <h1 className="type-display-sm mb-4">
               Track Your Order
             </h1>
-            <p className="text-muted-foreground text-lg">
+            <p className="type-body text-lg">
               Enter your order number and email to check the status of your shipment.
             </p>
           </div>
@@ -40,7 +40,7 @@ const TrackOrder = () => {
           <div className="max-w-md mx-auto px-6">
             <form onSubmit={handleTrackOrder} className="space-y-5">
               <div>
-                <label htmlFor="orderNumber" className="block text-sm font-medium text-foreground mb-2">
+                <label htmlFor="orderNumber" className="type-label block mb-2">
                   Order Number
                 </label>
                 <Input
@@ -54,7 +54,7 @@ const TrackOrder = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                <label htmlFor="email" className="type-label block mb-2">
                   Email Address
                 </label>
                 <Input

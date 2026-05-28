@@ -33,7 +33,7 @@ const ProductDetail = () => {
       <div className="min-h-screen bg-background">
         <Navbar />
         <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-          <p className="text-lg font-medium">Product not found</p>
+          <p className="text-lg font-bold">Product not found</p>
           <Link to="/" className="text-sm text-muted-foreground hover:text-foreground mt-2 inline-block transition-colors">
             ← Back to store
           </Link>
@@ -106,9 +106,9 @@ const ProductDetail = () => {
 
           {/* Details */}
           <div className="flex flex-col">
-            <h1 className="text-2xl md:text-3xl font-medium tracking-tight">{title}</h1>
+            <h1 className="type-section-title">{title}</h1>
             {selectedVariant && (
-              <p className="text-xl font-medium tabular-nums mt-2">
+              <p className="type-price text-xl mt-2">
                 ${parseFloat(selectedVariant.price.amount).toFixed(2)} {selectedVariant.price.currencyCode}
               </p>
             )}
@@ -118,7 +118,7 @@ const ProductDetail = () => {
               if (option.name === 'Title' && option.values.length === 1 && option.values[0] === 'Default Title') return null;
               return (
                 <div key={option.name} className="mt-6">
-                  <label className="text-sm font-medium mb-2 block">{option.name}</label>
+                  <label className="type-label mb-2 block">{option.name}</label>
                   <div className="flex flex-wrap gap-2">
                     {option.values.map((value) => {
                       const isSelected = selectedVariant?.selectedOptions?.some(

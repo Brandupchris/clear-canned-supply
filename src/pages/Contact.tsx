@@ -27,8 +27,8 @@ const Contact = () => {
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
       <main className="flex-1 max-w-5xl mx-auto w-full px-6 sm:px-8 lg:px-12 py-16">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground">Contact Us</h1>
-        <p className="text-muted-foreground mt-2 max-w-xl">
+        <h1 className="type-display-sm">Contact Us</h1>
+        <p className="type-body mt-2 max-w-xl">
           Have a question about our products or need help with an order? We'd love to hear from you.
         </p>
 
@@ -63,7 +63,7 @@ const Contact = () => {
             <div className="flex items-start gap-3">
               <Mail className="w-5 h-5 text-primary mt-0.5 shrink-0" />
               <div>
-                <p className="text-sm font-medium text-foreground">Email</p>
+                <p className="type-label">Email</p>
                 <a href="mailto:support@clearcans.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   clearcannedsupply@gmail.com
                 </a>
@@ -72,7 +72,7 @@ const Contact = () => {
             <div className="flex items-start gap-3">
               <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
               <div>
-                <p className="text-sm font-medium text-foreground">Location</p>
+                <p className="type-label">Location</p>
                 <p className="text-sm text-muted-foreground">104 South Tacoma Street, Pasco Washington 99301, United States                      </p>
               </div>
             </div>
